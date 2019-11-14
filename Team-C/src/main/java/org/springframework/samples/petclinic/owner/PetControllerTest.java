@@ -5,7 +5,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Added a test function to verify that when a user uses the processFunction() with a valid result int hte Binding result returns the right form
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -33,5 +36,8 @@ class PetControllerTest {
 
         assertEquals(expectedResult,actualResult);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Added a test function to verify that when a user uses the processFunction() with a valid result int hte Binding result returns the right form
 }

@@ -127,15 +127,21 @@
       <optional>true</optional>
     </dependency>
       <dependency>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Added a test function to verify that when a user uses the processFunction() with a valid result int hte Binding result returns the right form
           <groupId>org.testng</groupId>
           <artifactId>testng</artifactId>
           <version>6.14.3</version>
           <scope>compile</scope>
       </dependency>
       <dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> Added a test function to verify that when a user uses the processFunction() with a valid result int hte Binding result returns the right form
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-api</artifactId>
           <version>5.5.2</version>
@@ -144,8 +150,11 @@
       <dependency>
           <groupId>org.mockito</groupId>
           <artifactId>mockito-core</artifactId>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Added a test function to verify that when a user uses the processFunction() with a valid result int hte Binding result returns the right form
       </dependency>
   </dependencies>
 
