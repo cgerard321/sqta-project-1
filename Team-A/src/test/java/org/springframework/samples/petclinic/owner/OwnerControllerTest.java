@@ -185,7 +185,7 @@ public class OwnerControllerTest {
         //find textbox on the page
         WebElement textBox = driver.findElement(By.xpath("//*[@id=\"lastName\"]"));
 
-        //enter a name which doesnt exist, which is Ariane in this case
+        //enter a name which doesnt exist, which is Ariane in this case.
         textBox.sendKeys("Ariane");
 
         //hit the "find owners" button
