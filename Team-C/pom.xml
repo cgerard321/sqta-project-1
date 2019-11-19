@@ -126,6 +126,9 @@
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
     </dependency>
+      <dependency>
+
+      </dependency>
   </dependencies>
 
   <build>
