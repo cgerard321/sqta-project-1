@@ -48,6 +48,91 @@ class PetTest {
 
     }
 
+    //check for the description
+    //supposed to pass expected and actual description are the same
+    @Test
+    void checkValueDescriptionTrue() {
+        Visit visitMock = mock(Visit.class);
+        Pet petClassMock=mock(Pet.class);
+        when(visitMock.getDescription()).thenReturn("myDescription");
+        Set<Visit> visits = petClassMock.getVisitsInternal();
+        visits.add(visitMock);
+        String  expectedResult = "myDescription";
+        String actualResult="";
+
+        for(Visit v:visits){
+            actualResult=v.getDescription();
+        }
+
+        assertEquals(expectedResult,actualResult);
+
+    }
+
+    //check for the description
+    //supposed to pass fail and actual description are NOT the same
+    @Test
+    void checkValueDescriptionFalse() {
+        Visit visitMock = mock(Visit.class);
+        Pet petClassMock=mock(Pet.class);
+        when(visitMock.getDescription()).thenReturn("Hello");
+        Set<Visit> visits = petClassMock.getVisitsInternal();
+        visits.add(visitMock);
+        String  expectedResult = "myDescription";
+        String actualResult="";
+
+        for(Visit v:visits){
+            actualResult=v.getDescription();
+        }
+
+        assertEquals(expectedResult,actualResult);
+
+    }
+
+
+
+    //checks for the value of the date
+    //supposed to fail, date returned and expected date are NOT the same
+    @Test
+    void checkValueDateSame(){
+        Visit visitMock = mock(Visit.class);
+        Pet petClassMock= mock(Pet.class);
+        when(visitMock.getDate()).thenReturn(LocalDate.now());
+
+        Set<Visit> visits=petClassMock.getVisitsInternal();
+        visits.add(visitMock);
+    //initialize
+        LocalDate  expectedResult=LocalDate.now();
+        LocalDate  actualResult=LocalDate.now();
+
+        for(Visit s: visits){
+            actualResult= s.getDate();
+
+        }
+        assertEquals(expectedResult,actualResult);
+
+
+    }
+    //check if the dates match
+    //supposed to pass since actualResult is different from expectedResult
+    @Test
+    void checkValueDateDifferent(){
+        Visit visitMock = mock(Visit.class);
+        visitMock.setPetId(4);
+        visitMock.setDescription("myDescription");
+        visitMock.setDate(LocalDate.now());
+        Pet petClassMock= mock(Pet.class);
+        Set<Visit> visits=petClassMock.getVisitsInternal();
+        //initialize
+        LocalDate  expectedResult=LocalDate.ofYearDay(2019,25);
+
+        for(Visit s: visits){
+            LocalDate actualResult= s.getDate();
+            assertNotEquals(expectedResult,actualResult);
+        }
+
+
+    }
+
     //check if the LinkedHashSet contains the right object
     // and not an empty object
     @Test
@@ -64,7 +149,7 @@ class PetTest {
 
     }
     //checks for the value of petId
-    //Supposed to pass since the id given is the expected Id
+    //Supposed to pass since the id given is the same as the expected Id
     @Test
     void checkValuePetIdTrue(){
         Visit visitMock = mock(Visit.class);
@@ -77,7 +162,7 @@ class PetTest {
         int expectedResult=4;
         int actualResult=0;
         for(Visit s: visits){
-          actualResult= s.getPetId();
+            actualResult= s.getPetId();
 
         }
 
@@ -86,7 +171,7 @@ class PetTest {
     }
 
     //checks for the value of petId
-    //Supposed to fail since the id given is NOT the expected Id
+    //Supposed to pass since the id given is NOT the expected Id
     @Test
     void checkValuePetIdFalse(){
         Visit visitMock = mock(Visit.class);
@@ -101,7 +186,7 @@ class PetTest {
             actualResult= s.getPetId();
 
         }
-        assertEquals(expectedResult,actualResult);
+        assertNotEquals(expectedResult,actualResult);
 
     }
 
