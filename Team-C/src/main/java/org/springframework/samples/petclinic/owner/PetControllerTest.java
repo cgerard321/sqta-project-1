@@ -5,27 +5,33 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class PetControllerTest {
-@Test
-    void testPetController_updatePet_withError(){
-    PetRepository pets = mock(PetRepository.class);
-    OwnerRepository owners = mock(OwnerRepository.class);
 
-    PetController petController = new PetController(pets,owners);
-    Pet petMock = mock(Pet.class);
-    Owner ownerMock = mock(Owner.class);
-    BindingResult bResMock = mock(BindingResult.class);
-    ModelMap mMapMock = mock(ModelMap.class);
+    @Test
+    void processUpdateForm() {
+        //arrange
+        String expectedResult="redirect:/owners/{ownerId}";
 
+        Pet pet = mock(Pet.class);
+        Owner owner = mock(Owner.class);
+        PetRepository pets = mock(PetRepository.class);
+        OwnerRepository owners = mock(OwnerRepository.class);
+        PetController petController = new PetController(pets,owners);
+        ModelMap model = new ModelMap();
 
-    when(bResMock.hasErrors()).thenReturn(true);
-    String expectedResult = "pets/createOrUpdatePetForm";
-    String actualResult = petController.processUpdateForm(petMock,bResMock,ownerMock,mMapMock);
-    assertEquals(expectedResult,actualResult);
+        BindingResult bindingResult = mock(BindingResult.class);
 
+        String actualResult;
+        //act
+        when(bindingResult.hasErrors()).thenReturn(false);
+        actualResult = petController.processUpdateForm(pet,bindingResult,owner,model);
+        //assert
 
+        assertEquals(expectedResult,actualResult);
+    }
 
-}
 }
