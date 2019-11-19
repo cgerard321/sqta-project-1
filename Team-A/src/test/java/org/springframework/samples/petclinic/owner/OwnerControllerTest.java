@@ -10,7 +10,6 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
 @ExtendWith(SeleniumExtension.class)
 class OwnerControllerTest {
     ChromeDriver driver = new ChromeDriver();
@@ -143,7 +142,3 @@ class OwnerControllerTest {
         driver.quit();
     }
 }
-
-/*
-this is a test comment
- */
