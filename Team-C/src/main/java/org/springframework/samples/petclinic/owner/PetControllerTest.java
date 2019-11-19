@@ -5,6 +5,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -32,4 +33,5 @@ class PetControllerTest {
 
         assertEquals(expectedResult,actualResult);
     }
+
 }
