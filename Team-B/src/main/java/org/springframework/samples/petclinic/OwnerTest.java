@@ -32,11 +32,30 @@ class OwnerTest {
         assertEquals(header.getText().trim(),"Find Owners");
     }
 
+    @Test
+    void TestSelectOwner() {
+        GoToOwnersListPage();
+
+        WebElement ownerLink = driver.findElement(By.xpath("//*[@id=\"owners\"]/tbody/tr[1]/td[1]/a"));
+        ownerLink.click();
+
+        WebElement ownerInformationHeader = driver.findElement(By.xpath("/html/body/div/div/h2[1]"));
+        WebElement petAndVisitsHeader = driver.findElement(By.xpath("/html/body/div/div/h2[2]"));
+
+        assertEquals(ownerInformationHeader.getText().trim(),"Owner Information");
+        assertEquals(petAndVisitsHeader.getText().trim(),"Pets and Visits");
+    }
+
     void GoToOwnersPage(){
         driver.get("http://localhost:6969");
         WebElement ownerlink = driver.findElement(By.xpath("//*[@id=\"main-navbar\"]/ul/li[3]/a"));
 
         ownerlink.click();
+    }
+
+    void GoToOwnersListPage() {
+        driver.get("localhost:6969/owners");
+        pause();
     }
 
     void pause(){
