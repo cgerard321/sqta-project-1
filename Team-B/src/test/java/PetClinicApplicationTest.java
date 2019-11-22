@@ -9,13 +9,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith({SeleniumExtension.class})
 class PetClinicApplicationTest {
-    private final String PATH = "C:\\Users\\F248Master\\sqta-project-1\\chromedriver_mac64" +
-        "\\chromedriver";
-    private final String BROWSER = "webdriver.chrome.driver";
+
+
+    //private final String PATH = "C:\\Users\\F248Master\\sqta-project-1\\chromedriver_mac64" +
+      //  "\\chromedriver";
+    //private final String BROWSER = "webdriver.chrome.driver";
     ChromeDriver driver;
     public PetClinicApplicationTest(ChromeDriver driver) {
         this.driver = driver;
-        System.setProperty(BROWSER, PATH);
+        //System.setProperty(BROWSER, PATH);
     }
 
     @Test
@@ -93,7 +95,13 @@ class PetClinicApplicationTest {
         WebElement clickEdit =
             driver.findElement(By.linkText("Edit Owner"));
         clickEdit.click();
+        try{
 
+            Thread.sleep(5000);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
             driver.findElement(By.id("fistName")).sendKeys(frank1.getFirstName());
             driver.findElement(By.id("lastName")).sendKeys(frank1.getLastName());
