@@ -32,7 +32,6 @@ class OwnerTest {
         assertEquals(header.getText().trim(),"Find Owners");
     }
 
-
     void GoToOwnersPage(){
         driver.get("http://localhost:6969");
         WebElement ownerlink = driver.findElement(By.xpath("//*[@id=\"main-navbar\"]/ul/li[3]/a"));
