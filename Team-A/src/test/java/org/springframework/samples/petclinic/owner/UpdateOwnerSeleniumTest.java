@@ -1,13 +1,10 @@
 package org.springframework.samples.petclinic.owner;
-
 import io.github.bonigarcia.seljup.SeleniumExtension;
-import org.hamcrest.junit.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.samples.petclinic.model.Person;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
