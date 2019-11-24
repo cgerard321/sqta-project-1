@@ -96,6 +96,9 @@ public class Owner extends Person {
         this.pets = pets;
     }
 
+
+    // ---------------------------------->  2 next methods to test!!!!!!!!! <----------------------------------------
+
     public List<Pet> getPets() {
         List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
         PropertyComparator.sort(sortedPets,
