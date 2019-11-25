@@ -141,9 +141,61 @@ git push
 - Add a title documented in the 'structure' section and make sure to add the label on the side bar indicating which team you are on
 - In order to merge this pr we need two other people to review and approve it, you can get other peoples attention by 'requesting a review' on the side bar
 - Start by asking people on your team to do the review but don't hesitate to ask someone from a different team
-- Once you've pleased everyone and your code is in prime condition you can finally hit the 'squash and merge' button and set another title in which the naming conventions are documented in the 'Pull Request Commit Naming' section of 'Structure'
+- Once you've pleased everyone, your code is in prime condition, and you have no merge conflicts you can finally hit the 'squash and merge' button and set another title in which the naming conventions are documented in the 'Pull Request Commit Naming' section of 'Structure'
 - Your pr is now merged on the upstream master and everyone can fetch and rebase to see the work you've done
 - Congrats just repeat this process until the semester is over
+
+## Merge conflicts / Updating your branch
+
+### The commands are pretty much the same if you are updating a branch or if you are trying to fix a merge conflict, except if you are updating you will skip the `git add .` and the `git rebase --continue` because you don't have anything to fix, you will still have to `git push -f`
+
+Oh no, you have a merge conflict, this happens when you and another dev are working on the same file and edit the same line or git can't automatically figure out how to add your code and the upstream master code together
+
+Once you see this error on your pull request or if you happen to run into it outside of a pr just follow these easy steps
+
+- First donwload the upstream master data
+
+```
+git fetch upstream master
+```
+
+- Next we will use the rebase command
+
+```
+git rebase upstream/master
+```
+
+- Git will now replay the commits of your branch on top of the upstream master, if you have a merge conflict the prompt will pause and tell you which files were effected. From there just navigate to your file and update the code accordingly
+
+- Once you have fixed all the merge conflicts go back to your terminal and type
+
+```
+git add .
+```
+
+- Then
+
+```
+git rebase --continue
+```
+
+- This command is telling git ok I've fixed this conflict now move on to the next commit
+
+- If you have more conflicts just repeat the last couple of steps, until the rebase is complete
+
+- Generally you can tell the rebase is complete when you look at the branch name in your terminal and it is the correct branch name i.e. without any extra text or random symbols
+
+- After that the rebase has made a new local commit with all your changes, only one step left which is to force push
+
+```
+git push -f
+```
+
+- This is just short hand for `git push --force`
+
+- If you dont force push you'll get a bunch of red and yellow text which looks like you fucked up but its fine it didn't actually do anything just redo the command but with the `-f`
+
+- Should be all done if you go back to your pull request the branch should be able to automatically merge
 
 ## Useful Git Commands
 
