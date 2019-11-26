@@ -143,14 +143,18 @@ class OwnerControllerTest {
     }
 }
 
-/*
+/*****************************************
 This is a test comment added by cgerard321
 Added by a different student
 This is a comment to simulate a merge conflict....
+<<<<<<< HEAD
 ---------------------------------------------------
 Old comment is above
 First new comment is below
 --------------------------------------------------
 added as part of MERGE-1
-I am showing how to resolve a merge conflict.
-*/
+I am showing how to resolve a merge conflict.Comments added by second developer to simulate a merge conflict
+
+ Comments added by second developer to simulate a merge conflict...oops forgot to add this.
+ ******************************************/
+
