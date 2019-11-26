@@ -1,13 +1,11 @@
 package org.springframework.samples.petclinic.owner;
 
 import io.github.bonigarcia.seljup.SeleniumExtension;
-import org.hamcrest.junit.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.samples.petclinic.model.Person;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -19,11 +17,11 @@ class UpdateOwnerSeleniumTest{
     private final String PATH = "C:\\Users\\ekjoh\\Desktop\\School\\Year4\\GerardSoftwareTesting\\1\\ChromeDriver\\chromedriver.exe";
     private final String BROWSER = "webdriver.chrome.driver";
 
-    private final String FIRST_NAME = "Emma";
-    private final String LAST_NAME = "Johnson";
-    private final String ADDRESS = "588 chemin des Trente";
-    private final String CITY = "St-Mathias";
-    private final String TELEPHONE = "4504477324";
+    private final String FIRST_NAME_U = "Emma";
+    private final String LAST_NAME_U = "Johnson";
+    private final String ADDRESS_U = "588 chemin des Trente";
+    private final String CITY_U = "St-Mathias";
+    private final String TELEPHONE_U = "4504477324";
 
     ChromeDriver driver;
 
@@ -84,11 +82,11 @@ class UpdateOwnerSeleniumTest{
         telephoneInput.clear();
 
         //Insert new information into the inputs
-        firstNameInput.sendKeys(FIRST_NAME);
-        lastNameInput.sendKeys(LAST_NAME);
-        addressInput.sendKeys(ADDRESS);
-        cityInput.sendKeys(CITY);
-        telephoneInput.sendKeys(TELEPHONE);
+        firstNameInput.sendKeys(FIRST_NAME_U);
+        lastNameInput.sendKeys(LAST_NAME_U);
+        addressInput.sendKeys(ADDRESS_U);
+        cityInput.sendKeys(CITY_U);
+        telephoneInput.sendKeys(TELEPHONE_U);
 
         //Click the update button
         updateButton.click();
@@ -100,10 +98,10 @@ class UpdateOwnerSeleniumTest{
         String updatedTelephone = driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[4]/td")).getText();
 
         //Assert that the owner information matches what was inserted
-        assertTrue(updatedName.matches(FIRST_NAME+" "+LAST_NAME));
-        assertTrue(updatedAddress.matches(ADDRESS));
-        assertTrue(updatedCity.matches(CITY));
-        assertTrue(updatedTelephone.matches(TELEPHONE));
+        assertTrue(updatedName.matches(FIRST_NAME_U +" "+ LAST_NAME_U));
+        assertTrue(updatedAddress.matches(ADDRESS_U));
+        assertTrue(updatedCity.matches(CITY_U));
+        assertTrue(updatedTelephone.matches(TELEPHONE_U));
 
         driver.quit();
     }
