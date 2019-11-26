@@ -12,10 +12,9 @@ import static org.hamcrest.Matchers.is;
 
 @ExtendWith(SeleniumExtension.class)
 class OwnerControllerTest {
-    ChromeDriver driver = new ChromeDriver();
 
     @Test
-    public void Test_petClinic_OpenFindOwnersPage(){
+    public void Test_petClinic_OpenFindOwnersPage(ChromeDriver driver){
         driver.get("http://localhost:8090");
 
         //find a name on the page and click
@@ -143,6 +142,7 @@ class OwnerControllerTest {
     }
 }
 
+<<<<<<< HEAD
 /*****************************************
 This is a test comment added by cgerard321
 Added by a different student
@@ -158,3 +158,5 @@ I am showing how to resolve a merge conflict.Comments added by second developer 
  Comments added by second developer to simulate a merge conflict...oops forgot to add this.
  ******************************************/
 
+=======
+>>>>>>> Chrome Driver redundancy fix
