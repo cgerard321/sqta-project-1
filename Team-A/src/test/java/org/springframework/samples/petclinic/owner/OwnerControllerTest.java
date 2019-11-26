@@ -227,7 +227,10 @@ class OwnerControllerTest {
         assertTrue(updatedTelephone.matches(TELEPHONE_U));
 
     }
-    @Test void Test_petClinic_RightOwnerFound_as_Dev(ChromeDriver driver)
+
+    @Test
+    public void Test_petClinic_RightOwnerFound_as_Dev(ChromeDriver driver)
+
     {
         driver.get("http://localhost:8090/owners/find");
 
