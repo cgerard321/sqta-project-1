@@ -33,7 +33,7 @@ class PetTest {
 
     }
 
-=======
+
     //Test to see if we can successfully set and get the right pet type
     @Test
     void getType() {
