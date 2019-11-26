@@ -8,7 +8,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 
-class pending {
+class STQA_30_getVisitsInternal_whenNotNull {
     //check if the list has an item
     //supposed to create because new set<Visit> null is added to visits
     @Test
