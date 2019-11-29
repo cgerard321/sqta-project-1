@@ -221,7 +221,7 @@ class OwnerControllerTest {
         String updatedTelephone = driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[4]/td")).getText();
 
         //Assert that the owner information matches what was inserted
-        assertTrue(updatedName.matches(FIRST_NAME_U + " " + LAST_NAME_U));
+        assertTrue(updatedName.matches(FIRST_NAME_U +" "+ LAST_NAME_U));
         assertTrue(updatedAddress.matches(ADDRESS_U));
         assertTrue(updatedCity.matches(CITY_U));
         assertTrue(updatedTelephone.matches(TELEPHONE_U));
@@ -237,12 +237,10 @@ class OwnerControllerTest {
         //find and click the add owner button
         WebElement btn_addOwner = driver.findElement(By.xpath("/html/body/div/div/form/div[2]/div/button"));
         btn_addOwner.click();
-
         //random number will be appended to a user that is created (this is done to generate a random username)
         Random rand = new Random();
         int num_random = rand.nextInt(1000);
         String test_user_lname = "test_user_"+num_random;
-
         //now enter data to create a test owner that will we then try to find
 
         //first name
