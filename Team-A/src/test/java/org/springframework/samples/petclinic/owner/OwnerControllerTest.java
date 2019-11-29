@@ -7,6 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.ArrayList;
 import java.util.List;
+
+
+import java.util.Random;
+
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -148,6 +153,7 @@ class OwnerControllerTest {
         driver.quit();
     }
 
+
     @Test
     void Test_PetClinic_Update_Owner_Correct_Form_Displays(ChromeDriver driver) {
         driver.get("http:/localhost:1234/owners/1");
@@ -215,10 +221,80 @@ class OwnerControllerTest {
         String updatedTelephone = driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[4]/td")).getText();
 
         //Assert that the owner information matches what was inserted
-        assertTrue(updatedName.matches(FIRST_NAME_U +" "+ LAST_NAME_U));
+        assertTrue(updatedName.matches(FIRST_NAME_U + " " + LAST_NAME_U));
         assertTrue(updatedAddress.matches(ADDRESS_U));
         assertTrue(updatedCity.matches(CITY_U));
         assertTrue(updatedTelephone.matches(TELEPHONE_U));
+
+    }
+
+    @Test
+    public void Test_petClinic_RightOwnerFound_as_Dev(ChromeDriver driver)
+
+    {
+        driver.get("http://localhost:8090/owners/find");
+
+        //find and click the add owner button
+        WebElement btn_addOwner = driver.findElement(By.xpath("/html/body/div/div/form/div[2]/div/button"));
+        btn_addOwner.click();
+
+        //random number will be appended to a user that is created (this is done to generate a random username)
+        Random rand = new Random();
+        int num_random = rand.nextInt(1000);
+        String test_user_lname = "test_user_"+num_random;
+
+        //now enter data to create a test owner that will we then try to find
+
+        //first name
+        WebElement fld_entry_fname = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[1]/div/div/input"));
+        fld_entry_fname.sendKeys("test");
+
+        //last name
+        WebElement fld_entry_lname = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[2]/div/div/input"));
+        fld_entry_lname.sendKeys(test_user_lname);
+
+        //address
+        WebElement fld_entry_address = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[3]/div/div/input"));
+        fld_entry_address.sendKeys("test");
+
+        //city
+        WebElement fld_entry_city = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[4]/div/div/input"));
+        fld_entry_city.sendKeys("test");
+
+        //telephone
+        WebElement fld_entry_telephone = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[5]/div/div/input"));
+        fld_entry_telephone.sendKeys("test");
+
+        //submit button
+        WebElement fld_entry_submit = driver.findElement(By.xpath("/html/body/div/div/form/div[2]/div/button"));
+        fld_entry_submit.click();
+
+        //go back to find owners page
+        WebElement btn_nav = driver.findElement(By.xpath("/html/body/nav/div/div[1]/button"));
+        btn_nav.click();
+
+        //find and click find owners in the nav
+        WebElement btn_find_owners = driver.findElement(By.xpath("/html/body/nav/div/div[2]/ul/li[3]/a/span[2]"));
+        btn_find_owners.click();
+
+        //send keys to the lastname search fields
+        WebElement fld_lastName = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div/div/input"));
+        fld_lastName.sendKeys(test_user_lname);
+
+        //search for the owner that was created in this test
+        btn_addOwner.click();
+
+        //find the name of the owner after the last name search method has been used
+        WebElement right_owner_name = driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[1]/td/b"));
+
+        //assert that the owner names match
+        assertThat(right_owner_name.getText(), is(test_user_lname));
+
+        try{
+            Thread.sleep(5000);}
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
 
         driver.quit();
     }
