@@ -73,7 +73,7 @@ public class SQTA_47_addVet {
 
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
