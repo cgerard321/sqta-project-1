@@ -57,6 +57,7 @@
           <groupId>io.github.bonigarcia</groupId>
           <artifactId>selenium-jupiter</artifactId>
           <version>3.3.2</version>
+
       </dependency>
       <dependency>
           <groupId>org.hamcrest</groupId>

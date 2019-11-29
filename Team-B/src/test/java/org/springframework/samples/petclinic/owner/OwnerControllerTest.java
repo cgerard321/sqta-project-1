@@ -146,59 +146,72 @@ class OwnerControllerTest {
     @Test   //Danyyil - This tests whether or not users can edit owners.
     public void EditOwnerTest() throws InterruptedException {
         //Arrange
-        Owner frank = new Owner();
-        frank.setFirstName("George");
-        frank.setLastName("Franklin");
-        frank.setAddress("110 W. Liberty St.");
-        frank.setCity("Madison");
-        frank.setTelephone("6085551023");
-
         Owner frank1 = new Owner();
-        frank1.setFirstName("GeorGe");
-        frank1.setLastName("FrankLin");
+        frank1.setFirstName("George");
+        frank1.setLastName("Franklin");
         frank1.setAddress("110 W. Liberty St.");
-        frank1.setCity("MadiSon");
-        frank.setTelephone("60855510231");
+        frank1.setCity("Madison");
+        frank1.setTelephone("6085551023");
+
+        Owner frank = new Owner();
+        frank.setFirstName("GeorGe");
+        frank.setLastName("FrankLin");
+        frank.setAddress("110 W. Liberty St.");
+        frank.setCity("MadiSon");
+        frank.setTelephone("6085551023");
 
         //Act
         utils.goToPage("owners?lastName=");
         WebElement enterEdit =
             driver.findElement(By.linkText(frank.getFirstName() + " " + frank.getLastName()));
         enterEdit.click();
+
+        utils.pause(3000);
+
         WebElement clickEdit =
             driver.findElement(By.linkText("Edit Owner"));
         clickEdit.click();
 
         utils.pause(3000);
 
+        driver.findElement(By.id("firstName")).clear();
         driver.findElement(By.id("firstName")).sendKeys(frank1.getFirstName());
+        driver.findElement(By.id("lastName")).clear();
+        driver.findElement(By.id("lastName")).clear();
         driver.findElement(By.id("lastName")).sendKeys(frank1.getLastName());
+        driver.findElement(By.id("address")).clear();
         driver.findElement(By.id("address")).sendKeys(frank1.getAddress());
+        driver.findElement(By.id("city")).clear();
         driver.findElement(By.id("city")).sendKeys(frank1.getCity());
+        driver.findElement(By.id("telephone")).clear();
         driver.findElement(By.id("telephone")).sendKeys(frank1.getTelephone());
-        utils.pause(3000);
+        utils.pause(4000);
         WebElement UpdateOwner =
-            driver.findElement(By.linkText("Update Owner"));
+            driver.findElement(By.xpath("//*[@id=\"add-owner-form\"]/div[2]/div/button"));
         UpdateOwner.click();
-
+        utils.pause(3000);
 
         //Assert
         WebElement findOwnerLastFirstName =
-            driver.findElement(By.xpath("//*[@id=\"owners\"]/tbody/tr[1]/td[1]/a"));
+            driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[1]/td/b"));
         String firstLast = findOwnerLastFirstName.getText();
-        WebElement findOwnerAddress =
-            driver.findElement(By.xpath("//*[@id=\"owners\"]/tbody/tr[1]/td[2]"));
-        String address = findOwnerAddress.getText();
-        WebElement findOwnerCity =
-            driver.findElement(By.xpath("//*[@id=\"owners\"]/tbody/tr[1]/td[3]"));
-        String city = findOwnerCity.getText();
-        WebElement findOwnerTelephnone =
-            driver.findElement(By.xpath("//*[@id=\"owners\"]/tbody/tr[1]/td[4]"));
-        String telephone = findOwnerTelephnone.getText();
 
+        WebElement findOwnerAddress =
+            driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[2]/td"));
+        String address = findOwnerAddress.getText();
+
+        WebElement findOwnerCity =
+            driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[3]/td"));
+        String city = findOwnerCity.getText();
+//html/body/div/div/table[1]/tbody/tr[3]/td
+
+        WebElement findOwnerTelephnone =
+            driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[4]/td"));
+        String telephone = findOwnerTelephnone.getText();
+//html/body/div/div/table[1]/tbody/tr[4]/td
         utils.pause(3000);
 
-        assertEquals(firstLast, frank1.getLastName()+" "+frank1.getFirstName());
+        assertEquals(firstLast, frank1.getFirstName()+" "+frank1.getLastName());
         assertEquals(address, frank1.getAddress());
         assertEquals(city, frank1.getCity());
         assertEquals(telephone, frank1.getTelephone());
