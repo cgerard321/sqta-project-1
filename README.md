@@ -153,7 +153,7 @@ Oh no, you have a merge conflict, this happens when you and another dev are work
 
 Once you see this error on your pull request or if you happen to run into it outside of a pr just follow these easy steps
 
-- First donwload the upstream master data
+- First download the upstream master data
 
 ```
 git fetch upstream master
@@ -193,7 +193,7 @@ git push -f
 
 - This is just short hand for `git push --force`
 
-- If you dont force push you'll get a bunch of red and yellow text which looks like you fucked up but its fine it didn't actually do anything just redo the command but with the `-f`
+- If you don't force push you'll get a bunch of red and yellow text, which looks like you messed up but it's fine. It didn't actually do anything just redo the command but with the `-f`
 
 - Should be all done if you go back to your pull request the branch should be able to automatically merge
 
