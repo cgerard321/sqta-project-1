@@ -1,19 +1,12 @@
 import io.github.bonigarcia.seljup.SeleniumExtension;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.jupiter.api.Assertions.*;
-
 import static org.hamcrest.junit.MatcherAssert.assertThat;
-
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @ExtendWith(SeleniumExtension.class)
 public class SQTA_29_TEST {
