@@ -32,7 +32,7 @@ class UpdateOwnerSeleniumTest{
 
     @Test
     void Test_PetClinic_Update_Owner_Correct_Form_Displays() {
-        driver.get("http:/localhost:1234/owners/1");
+        driver.get("http:/localhost:8090/owners/1");
 
         //Find and click the edit owner button
         WebElement editOwner = driver.findElement(By.xpath("/html/body/div/div/a[1]"));
@@ -59,7 +59,7 @@ class UpdateOwnerSeleniumTest{
 
     @Test
     void Test_Updated_Owner_Details_Display() {
-        driver.get("http:/localhost:1234/owners/1");
+        driver.get("http:/localhost:8090/owners/1");
 
         //Find and click the edit owner button
         WebElement editOwnerButton = driver.findElement(By.xpath("/html/body/div/div/a[1]"));

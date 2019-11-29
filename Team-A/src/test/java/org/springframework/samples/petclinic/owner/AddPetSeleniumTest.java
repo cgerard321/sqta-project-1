@@ -30,7 +30,7 @@ class AddPetSeleniumTest {
 
     @Test
     void Test_PetClinic_Add_Pet_Correct_Form_Displays() {
-        driver.get("http:/localhost:1234/owners/1");
+        driver.get("http:/localhost:8090/owners/1");
 
         //Find and click the Add New Pet owner button
         WebElement newPet = driver.findElement(By.xpath("/html/body/div/div/a[2]"));
@@ -54,7 +54,7 @@ class AddPetSeleniumTest {
 
     @Test
     void Test_New_Pet_Details_Display() {
-        driver.get("http:/localhost:1234/owners/1");
+        driver.get("http:/localhost:8090/owners/1");
 
         //Find and click the Add New Pet owner button
         WebElement newPet = driver.findElement(By.xpath("/html/body/div/div/a[2]"));
