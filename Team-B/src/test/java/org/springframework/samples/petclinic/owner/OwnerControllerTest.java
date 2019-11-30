@@ -217,4 +217,52 @@ class OwnerControllerTest {
         assertEquals(telephone, frank1.getTelephone());
 
     }
+
+
+    public void chooseAnOwner() {
+        utils.goToPage("owners");
+        int numberOfOwners = driver.findElements(By.xpath("//table[@id='owners']/tbody/tr")).size();
+        int randomOwnerIndex = (int) Math.floor(Math.random()*numberOfOwners);
+
+        utils.goToPage("owners/" + randomOwnerIndex);
+    }
+
+    @Test //Ivan - Test if a visit can be added for a pet
+    public void AddVisitTest() {
+        //Arrange
+
+        //Act
+        boolean doesntHasPets = true;
+        do {
+            chooseAnOwner();
+
+            if(driver.findElements(By.xpath("//table[1]")).size() != 0) {
+                doesntHasPets = false;
+            }
+        } while (doesntHasPets);
+
+        WebElement addVisitBtn = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[2]/table/tbody/tr/td[2]/a"));
+        addVisitBtn.click();
+
+        WebElement dateTextField = driver.findElement(By.name("date"));
+        WebElement descriptionTextField = driver.findElement(By.name("description"));
+
+        String randomDate = "2019-03-24";
+        dateTextField.clear();
+        dateTextField.sendKeys(randomDate);
+
+        String randomDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+        descriptionTextField.sendKeys(randomDescription);
+
+        WebElement submitAddVisitBtn = driver.findElement(By.xpath("/html/body/div/div/form/div[2]/div/button"));
+        submitAddVisitBtn.click();
+
+        utils.pause(5000);
+        WebElement visitsTbody = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[2]//tbody"));
+        //Assert
+        String tableText = visitsTbody.getText();
+        System.out.println(tableText);
+        assertTrue(tableText.contains(randomDate));
+        assertTrue(tableText.contains(randomDescription));
+    }
 }
