@@ -214,7 +214,7 @@ class OwnerControllerTest {
         utils.goToPage("owners/" + randomOwnerIndex);
     }
 
-    @Test
+    @Test //Ivan - Test if a visit can be added for a pet
     public void AddVisitTest() {
         //Arrange
 
