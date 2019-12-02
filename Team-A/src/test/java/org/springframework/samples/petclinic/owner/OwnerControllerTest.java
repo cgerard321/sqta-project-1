@@ -1,4 +1,5 @@
 package org.springframework.samples.petclinic.owner;
+
 import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -7,10 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.ArrayList;
 import java.util.List;
-
-
 import java.util.Random;
-
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -229,9 +227,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    public void Test_petClinic_RightOwnerFound_as_Dev(ChromeDriver driver)
-
-    {
+    public void Test_petClinic_RightOwnerFound_as_Dev(ChromeDriver driver) {
         driver.get("http://localhost:8090/owners/find");
 
         //find and click the add owner button
