@@ -26,7 +26,7 @@ class PetTest {
         driver.get("http://localhost:8084/owners/1");
 
         //find editpet link on the page
-        WebElement editPetLink = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[2]/table/tbody/tr/td[1]"));
+        WebElement editPetLink = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[2]/table/tbody/tr/td[1]/a"));
         editPetLink.click();
 
         //get information on the page
@@ -43,9 +43,9 @@ class PetTest {
 
         //assert the elements on the page are correct
         assertThat(owner.getText(), is(ownername));
-        assertThat(name.getText(), is(petname));
-        assertThat(birthDate.getText(), is(petbirthDate));
-        assertThat(type.getText(), is(petType));
+        assertThat(name.getAttribute("value"), is(petname));
+        assertThat(birthDate.getAttribute("value"), is(petbirthDate));
+        assertThat(type.getAttribute("value"), is(petType));
 
         try{
             Thread.sleep(5000);}
@@ -66,17 +66,22 @@ class PetTest {
         WebElement updatePet = driver.findElement(By.xpath("/html/body/div/div/form/div[2]/div/button"));
 
         //enter values in the form
+        name.clear();
         name.sendKeys("Cookie");
+        birthday.clear();
         birthday.sendKeys("2019-05-07");
         dropdownType.selectByVisibleText("dog");
 
         //click on the submit button
         updatePet.click();
 
+        WebElement editPetLink = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[2]/table/tbody/tr/td[1]/a"));
+        editPetLink.click();
+
         //get information on the page
-        WebElement nameUpdated = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[1]/dl/dd[1]"));
-        WebElement birthDateUpdated = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[1]/dl/dd[2]"));
-        WebElement typeUpdated = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[1]/dl/dd[3]"));
+        WebElement nameupdated = driver.findElement(By.xpath("//*[@id=\"name\"]"));
+        WebElement birthUpdated = driver.findElement(By.xpath("//*[@id=\"birthDate\"]"));
+        WebElement typeUpdated = driver.findElement(By.xpath("//*[@id=\"type\"]"));
 
         //create strings to compare the displayed information
         String petname = "Cookie";
@@ -84,9 +89,45 @@ class PetTest {
         String petType = "dog";
 
         //assert the elements on the page are correct
-        assertThat(nameUpdated.getText(), is(petname));
-        assertThat(birthDateUpdated.getText(), is(petbirthDate));
-        assertThat(typeUpdated.getText(), is(petType));
+        assertThat(nameupdated.getAttribute("value"), is(petname));
+        assertThat(birthUpdated.getAttribute("value"), is(petbirthDate));
+        assertThat(typeUpdated.getAttribute("value"), is(petType));
+
+        try{
+            Thread.sleep(5000);}
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
+        driver.quit();
+    }
+
+    @Test
+    public void Test_petClinic_NoDataEntered(ChromeDriver driver){
+        driver.get("http://localhost:8084/owners/1/pets/1/edit");
+
+        //get textboxes on the page
+        WebElement name = driver.findElement(By.xpath("//*[@id=\"name\"]"));
+        WebElement birthday = driver.findElement(By.xpath("//*[@id=\"birthDate\"]"));
+        WebElement updatePet = driver.findElement(By.xpath("/html/body/div/div/form/div[2]/div/button"));
+
+        //enter values in the form
+        name.clear();
+        birthday.clear();
+
+        //click on the submit button
+        updatePet.click();
+
+        //get information on the page
+        WebElement error1 = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[2]/div/span[2]"));
+        WebElement error2 = driver.findElement(By.xpath("/html/body/div/div/form/div[1]/div[3]/div/span[2]"));
+
+        //create strings to compare the displayed information
+        String errorMessage1 = "is required";
+        String errorMessage2 = "is required";
+
+        //assert the elements on the page are correct
+        assertThat(error1.getText(), is(errorMessage1));
+        assertThat(error2.getText(), is(errorMessage2));
 
         try{
             Thread.sleep(5000);}
