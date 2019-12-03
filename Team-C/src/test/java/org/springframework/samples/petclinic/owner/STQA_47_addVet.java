@@ -16,20 +16,20 @@ public class STQA_47_addVet {
     String lName = "Franklin";
     public STQA_47_addVet(ChromeDriver driver){
         this.driver = driver;
-        System.setProperty(BROWSER, PATH);
+       // System.setProperty(BROWSER, PATH);
     }
-    @Test
+
     public void getPetClinicHomePage() {
-        driver.get("localhost:8081");
+        driver.get("localhost:8080");
     }
-    @Test
+
     public void getFindOwnersPage() {
         getPetClinicHomePage();
         WebElement ownerPageHyperlink = driver.findElementByXPath("//*[@id=\"main-navbar\"]/ul/li[3]/a");
         ownerPageHyperlink.click();
     }
 
-    @Test
+
     public void getOwner(){
         getFindOwnersPage();
         WebElement search= driver.findElement(By.xpath("//*[@id=\"lastName\"]"));
@@ -44,7 +44,7 @@ public class STQA_47_addVet {
         }
 
     }
-    @Test
+
     public void addVisit(){
         getOwner();
         WebElement log = driver.findElement(By.xpath("/html/body/div/div/table[2]/tbody/tr/td[2]/table/tbody/tr/td[2]/a"));

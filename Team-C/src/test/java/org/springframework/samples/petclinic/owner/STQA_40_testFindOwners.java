@@ -21,7 +21,7 @@ class STQA_40_testFindOwners {
 
     @Test
     public void Test_Nav_To_Find_Owners(){
-        driver.get("http://localhost:8090");
+        driver.get("http://localhost:8080");
 
         WebElement findOwnersPage = driver.findElementByXPath("//*[@id=\"main-navbar\"]/ul/li[3]/a");
         findOwnersPage.click();

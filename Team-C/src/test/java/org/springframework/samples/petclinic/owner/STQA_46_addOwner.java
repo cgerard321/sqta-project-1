@@ -18,28 +18,28 @@ public class STQA_46_addOwner {
 
     public STQA_46_addOwner(ChromeDriver driver){
             this.driver=driver;
-            System.setProperty(BROWSER,PATH);
+            //System.setProperty(BROWSER,PATH);
     }
 
-    @Test
+
     public void getHomePage() {
-        driver.get("localhost:8081");
+        driver.get("localhost:8080");
     }
 
-    @Test
+
     public void findOwnerPage(){
         getHomePage();
         WebElement ownerPageHyperlink = driver.findElementByXPath("/html/body/nav/div/div[2]/ul/li[3]/a");
         ownerPageHyperlink.click();
     }
-    @Test
+
     public void addOwnerPage(){
         findOwnerPage();
         WebElement addOwnerPageBtn= driver.findElementByXPath("/html/body/div/div/a");
         addOwnerPageBtn.click();
     }
 
-    @Test
+
     public void fillAddOwnerForm(){
 
         addOwnerPage();
