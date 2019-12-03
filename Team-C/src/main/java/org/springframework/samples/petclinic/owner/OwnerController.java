@@ -55,6 +55,12 @@ class OwnerController {
     }
 
     @GetMapping("/owners/new")
+    public String initCreationForm(Map<String, Object> model) {
+        Owner owner = new Owner();
+        model.put("owner", owner);
+        return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+    }
+
 
 
     @PostMapping("/owners/new")
@@ -132,5 +138,6 @@ class OwnerController {
         mav.addObject(owner);
         return mav;
     }
+
 
 }
