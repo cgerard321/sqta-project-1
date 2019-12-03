@@ -10,6 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 @ExtendWith(SeleniumExtension.class)
 class VetControllerTest_Selenium {
     private final String SCREENSHOTS = "C:\\Users\\MegMeg\\IdeaProjects\\Screenshots\\screen.png";
@@ -32,6 +35,20 @@ class VetControllerTest_Selenium {
         WebElement showVetsBTN = driver.findElement(By.xpath("//*[@title='veterinarians']"));
         showVetsBTN.click();
 
+
+        //find Veterinarians title
+        WebElement veterinarianTitle = driver.findElement(By.xpath("/html/body/div/div/h2"));
+        //assert the element is displayed and correct
+        assertThat(veterinarianTitle.isDisplayed(), is(true));
+        assertThat(veterinarianTitle.getText(), is("Veterinarians"));
+
+        //find a veterinarian object to make sure they are displayed
+        WebElement veterinarianName = driver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[1]/td[1]"));
+        WebElement veterinarianSpecialty = driver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[1]/td[2]/span"));
+        //assert the element is displayed and correct
+        assertThat(veterinarianName.getText(), is("James Carter"));
+        assertThat(veterinarianSpecialty.getText(), is("none"));
+
         //take snapshot for confirmation
         takeSnapShot(driver, SCREENSHOTS);
 
@@ -47,6 +64,5 @@ class VetControllerTest_Selenium {
         //Copy file at destination
         FileUtils.copyFile(SrcFile, DestFile);
     }
-
 
 }
