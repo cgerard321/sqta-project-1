@@ -9,12 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 @ExtendWith(SeleniumExtension.class)
-public class SQTA_47_addVet {
+public class STQA_47_addVet {
     private final String PATH = "C:\\Users\\Haroon\\Desktop\\School\\Fall 2019\\Software Testing and QA\\ChromeDriver\\chromedriver.exe";
     private final String BROWSER = "webdriver.chrome.driver";
     ChromeDriver driver;
     String lName = "Franklin";
-    public SQTA_47_addVet(ChromeDriver driver){
+    public STQA_47_addVet(ChromeDriver driver){
         this.driver = driver;
         System.setProperty(BROWSER, PATH);
     }
