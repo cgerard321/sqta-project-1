@@ -40,7 +40,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 @ExtendWith(SeleniumExtension.class)
-public class STQA_29_TEST {
+public class STQA_29_getOwnerList {
 
     //private final String PATH = "E:\\School\\Semester7\\Software Testing\\chromedriver_win32\\chromedriver.exe";
     //E:\School\Semester7\Software Testing\chromedriver_win32
@@ -50,7 +50,7 @@ public class STQA_29_TEST {
     private ChromeDriver driver;
 
     //Set Driver Property
-    public STQA_29_TEST(ChromeDriver driver) {
+    public STQA_29_getOwnerList(ChromeDriver driver) {
         this.driver = driver;
         //System.setProperty(BROWSER,PATH);
     }

@@ -21,7 +21,7 @@ class STQA_41_testVeterinarians {
 
     @Test
     public void Test_Nav_To_Veterinarians(){
-        driver.get("http://localhost:8090");
+        driver.get("http://localhost:8080");
 
         WebElement findOwnersPage = driver.findElementByXPath("//*[@id=\"main-navbar\"]/ul/li[4]/a");
         findOwnersPage.click();
