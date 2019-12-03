@@ -14,10 +14,10 @@ import static org.junit.Assert.assertEquals;
 
 
 @ExtendWith(SeleniumExtension.class)
-public class STQA_HORIA_PENDING_testIfGetOwnerFormSticky {
+public class STQA_43_testIfGetOwnerFormSticky {
     ChromeDriver driver;
 
-    public STQA_HORIA_PENDING_testIfGetOwnerFormSticky(ChromeDriver driver)
+    public STQA_43_testIfGetOwnerFormSticky(ChromeDriver driver)
     {
         this.driver = driver;
     }
