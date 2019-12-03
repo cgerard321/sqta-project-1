@@ -17,20 +17,42 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+//
+
+//package org.springframework.samples.petclinic.owner;
+
+import io.github.bonigarcia.seljup.SeleniumExtension;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.*;
+
+import static org.hamcrest.junit.MatcherAssert.assertThat;
+
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
 @ExtendWith(SeleniumExtension.class)
 public class SQTA_29_TEST {
 
-    private final String PATH = "E:\\School\\Semester7\\Software Testing\\chromedriver_win32\\chromedriver.exe";
+    //private final String PATH = "E:\\School\\Semester7\\Software Testing\\chromedriver_win32\\chromedriver.exe";
     //E:\School\Semester7\Software Testing\chromedriver_win32
     // E:\\School\\Semester7\\Software Testing\\chromedriver_win32\\chromedriver.exe
-    private final String BROWSER = "webdriver.chrome.driver";
+    //private final String BROWSER = "webdriver.chrome.driver";
     //private final String SCREENSHOTS = "C:\\ChromeDriver\\Screenshots";
     private ChromeDriver driver;
 
     //Set Driver Property
     public SQTA_29_TEST(ChromeDriver driver) {
         this.driver = driver;
-        System.setProperty(BROWSER,PATH);
+        //System.setProperty(BROWSER,PATH);
     }
 
 

@@ -1,3 +1,5 @@
+package org.springframework.samples.petclinic.owner;
+
 import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
