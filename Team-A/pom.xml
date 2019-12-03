@@ -33,7 +33,13 @@
 
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
-    <dependency>
+      <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/selenium-jupiter -->
+      <dependency>
+          <groupId>io.github.bonigarcia</groupId>
+          <artifactId>selenium-jupiter</artifactId>
+          <version>3.3.2</version>
+      </dependency>
+      <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
@@ -44,26 +50,11 @@
           <version>5.5.2</version>
           <scope>test</scope>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
-      <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-params</artifactId>
-          <version>5.5.2</version>
-          <scope>test</scope>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/selenium-jupiter -->
 
       <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-cache</artifactId>
     </dependency>
-      <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/selenium-jupiter -->
-      <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/selenium-jupiter -->
-      <dependency>
-          <groupId>io.github.bonigarcia</groupId>
-          <artifactId>selenium-jupiter</artifactId>
-          <version>3.3.2</version>
-      </dependency>
       <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -100,12 +91,6 @@
           <artifactId>junit-jupiter-params</artifactId>
           <version>5.5.2</version>
           <scope>test</scope>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/selenium-jupiter -->
-      <dependency>
-          <groupId>io.github.bonigarcia</groupId>
-          <artifactId>selenium-jupiter</artifactId>
-          <version>3.3.2</version>
       </dependency>
       <dependency>
           <groupId>org.hamcrest</groupId>
@@ -158,20 +143,6 @@
     </dependency>
     <!-- end of webjars -->
 
-      <!-- The needed dependencies -->
-      <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/selenium-jupiter -->
-      <dependency>
-          <groupId>io.github.bonigarcia</groupId>
-          <artifactId>selenium-jupiter</artifactId>
-          <version>3.3.2</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
-      <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-params</artifactId>
-          <version>5.6.0-M1</version>
-          <scope>test</scope>
-      </dependency>
 
       <!-- a javax persistence dependency that may be needed  -->
       <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
